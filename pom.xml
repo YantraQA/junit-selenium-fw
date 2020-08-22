@@ -32,19 +32,25 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M1</version>
+
                 <configuration>
                     <systemPropertyVariables>
-                        <env.variable.1></env.variable.1><!--this is custom variable. currently no value-->
+
                     </systemPropertyVariables>
+                    <forkCount>4</forkCount>
+                    <reuseForks>false</reuseForks>
                     <parallel>methods</parallel>
                     <threadCount>4</threadCount>
                     <perCoreThreadCount>false</perCoreThreadCount>
                     <useUnlimitedThreads>true</useUnlimitedThreads>
                     <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
                 </configuration>
+
             </plugin>
         </plugins>
     </build>
 </project>
+        <!--<env.variable.1></env.variable.1>this is custom variable. currently no value-->

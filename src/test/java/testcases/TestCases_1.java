@@ -1,18 +1,15 @@
 package testcases;
 
+import base.TestBase;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.util.concurrent.TimeUnit;
 
-public class TC_ClassFile1 {
-
-    WebDriver driver;
-    String base_url = "https://traveltriangle.com/";
-    int implicit_wait_timeout_in_sec = 20;
+public class TestCases_1 extends TestBase {
 
     @Before
     public void set_up(){
@@ -29,6 +26,7 @@ public class TC_ClassFile1 {
         Assert.assertEquals("Page Title validation",expected,actual);
     }
 
+    @After
     public void clean_up(){
         driver.quit();
     }
