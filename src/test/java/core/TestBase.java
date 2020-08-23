@@ -18,7 +18,7 @@ public class TestBase {
         String browserDefault = "chrome"; //Set by default
         String browserSentFromCmd = System.getProperty("browser");
 
-        if (browserSentFromCmd.isEmpty()){
+        if (browserSentFromCmd==null){
             return browserDefault;
         }else{
             return browserSentFromCmd;
