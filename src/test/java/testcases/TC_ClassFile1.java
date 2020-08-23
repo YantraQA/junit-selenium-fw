@@ -1,5 +1,6 @@
 package testcases;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,7 +29,8 @@ public class TC_ClassFile1 {
         String actual =driver.getTitle();
         Assert.assertEquals("Page Title validation",expected,actual);
     }
-
+    
+    @After
     public void clean_up(){
         driver.quit();
     }
