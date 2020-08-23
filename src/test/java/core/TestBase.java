@@ -1,6 +1,8 @@
-package base;
+package core;
 
+import core.webdriverfactory.WebDriverFactory;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,13 +12,15 @@ import java.util.concurrent.TimeUnit;
 public class TestBase {
     protected WebDriver driver; //this should never be static, if made static parallel exec of classes not possible
     protected final static String base_url = "https://amazon.in";
-    protected final static int implicit_wait_timeout_in_sec = 20;
 
     @Before
     public void set_up(){
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(implicit_wait_timeout_in_sec, TimeUnit.SECONDS);
+        try{
+            driver = WebDriverFactory.getWebDriverForBrowser("chrome");
+        }catch(Exception e){
+            e.printStackTrace();
+            Assert.fail("Incorrect Browser Sent. Check the Stack Trace");
+        }
     }
 
     @After

@@ -1,13 +1,8 @@
 package testcases;
 
-import base.TestBase;
-import org.junit.After;
+import core.TestBase;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import java.util.concurrent.TimeUnit;
 
 public class TestCases_1 extends TestBase {
 
