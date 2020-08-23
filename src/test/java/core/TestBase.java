@@ -13,13 +13,25 @@ public class TestBase {
     protected WebDriver driver; //this should never be static, if made static parallel exec of classes not possible
     protected final static String base_url = "https://amazon.in";
 
+    private String getBrowserName(){
+        String browserDefault = "chrome"; //Set by default
+        String browserSentFromCmd = System.getProperty("browser");
+
+        if (browserSentFromCmd.isEmpty()){
+            return browserDefault;
+        }else{
+            return browserSentFromCmd;
+        }
+    }
+
     @Before
     public void set_up(){
+        String browser = getBrowserName();
         try{
-            driver = WebDriverFactory.getWebDriverForBrowser("chrome");
+            driver = WebDriverFactory.getWebDriverForBrowser(browser);
         }catch(Exception e){
             e.printStackTrace();
-            Assert.fail("Incorrect Browser Sent. Check the Stack Trace");
+            Assert.fail("Browser Initialization failed. Check the Stack Trace. " + e.getMessage());
         }
     }
 
