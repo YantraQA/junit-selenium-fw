@@ -15,13 +15,6 @@ import java.util.concurrent.TimeUnit;
 
 public class TestCases_2 extends TestBase {
 
-    @Before
-    public void set_up(){
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(implicit_wait_timeout_in_sec, TimeUnit.SECONDS);
-    }
-
     @Test
     public void t_02_search_for_product() {
         driver.get(base_url);
@@ -42,10 +35,4 @@ public class TestCases_2 extends TestBase {
         //Assertion for Page Title
         Assert.assertEquals("Page Title validation",driver.getTitle(),"Amazon.in : Laptop");
     }
-
-    @After
-    public void clean_up(){
-        driver.quit();
-    }
-
 }
