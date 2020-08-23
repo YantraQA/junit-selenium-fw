@@ -16,8 +16,9 @@ public class TestBase {
     private String getBrowserName(){
         String browserDefault = "chrome"; //Set by default
         String browserSentFromCmd = System.getProperty("browser");
-
-        if (browserSentFromCmd.isEmpty()){
+        //mvn clean install -Dbrowser=safari
+        //browserSentFromCmd = safari
+        if (browserSentFromCmd==null){
             return browserDefault;
         }else{
             return browserSentFromCmd;

@@ -23,7 +23,7 @@ public class TestCases_2 extends TestBase {
         elementSearchBox.sendKeys("Laptop");
         driver.findElement(By.xpath("//input[@value='Go']")).click();
 
-        //Wait for titile
+        //Wait for title
         WebDriverWait webDriverWait1 = new WebDriverWait(driver,20);
         webDriverWait1.until(ExpectedConditions.titleIs("Amazon.in : Laptop"));
 
