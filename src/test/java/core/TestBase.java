@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class TestBase {
     protected WebDriver driver; //this should never be static, if made static parallel exec of classes not possible
     protected final static String base_url = "https://amazon.in";
+    protected final static String defaultPageTitleText = "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
 
     private String getBrowserName(){
         String browserDefault = "chrome"; //Set by default
