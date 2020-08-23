@@ -13,5 +13,4 @@ public class TestCases_1 extends TestBase {
         String actual =driver.getTitle();
         Assert.assertEquals("Page Title validation",expected,actual);
     }
-
 }
