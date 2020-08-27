@@ -1,7 +1,7 @@
 package pageobjects;
 
-//import org.apache.logging.log4j.LogManager;
-//import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CmnPageObjects {
-	//private static final Logger logger = LogManager.getLogger(CmnPageObjects.class);
+	private static final Logger logger = LogManager.getLogger(CmnPageObjects.class);
 	WebDriver driver;
 
 	private By search_text_box = By.id("twotabsearchtextbox");
@@ -30,29 +30,29 @@ public class CmnPageObjects {
 
 	public void SetSearchTextBox(String text) {
 		driver.findElement(search_text_box).sendKeys(text);
-		//logger.info("Value enetered in search box: " + text);
+		logger.info("Value enetered in search box: " + text);
 	}
 
 	public void ClickOnSearchButton() {
 		driver.findElement(search_button).click();
-		//logger.info("Clicked on Search Button");
+		logger.info("Clicked on Search Button");
 	}
 
 	public void ClickOnHamburgerMenuButton() {
 		driver.findElement(hamburger_menu_link).click();
-		//logger.info("Clicked on Hamburger Menu Button");
+		logger.info("Clicked on Hamburger Menu Button");
 	}
 
 	public void ClickOnHamburgerMenuProductCategoryLink(String linkText) {
 		By byElement = By.xpath(String.format(hamburger_menu_category_link_xpath,linkText));
 		driver.findElement(byElement);
-		//logger.info("Clicked on Hamburger Menu Category link: " + linkText);
+		logger.info("Clicked on Hamburger Menu Category link: " + linkText);
 	}
 	
 	public void ClickOnHamburgerMenuProductSubCategoryLink(String linkText) {
 		By byElement = By.xpath(String.format(hamburger_menu_sub_category_link_xpath,linkText));
 		driver.findElement(byElement).click();
-		//logger.info("Clicked on Hamburger Menu SubCategory link: " + linkText);
+		logger.info("Clicked on Hamburger Menu SubCategory link: " + linkText);
 	}
 
 	public void validateHamBurgerMenuIsDisplayed() {
@@ -69,7 +69,7 @@ public class CmnPageObjects {
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		Boolean b = wait.until(ExpectedConditions.titleContains(expectedTitle));
 		Assert.assertEquals("Title Validation",true, b);
-		//logger.info("Page title matched: " + expectedTitle );
+		logger.info("Page title matched: " + expectedTitle );
 	}
 	
 
@@ -100,16 +100,15 @@ public class CmnPageObjects {
 			b = driver.findElement(search_text_box).isDisplayed();
 			break;
 		default:
-			//logger.fatal("Header Link Description is not present in the case. Please add link description first.");
-			//scn.write("Header Link Description is not present in the case. Please add link description first.");
+			logger.fatal("Header Link Description is not present in the case. Please add link description first.");
 			throw new Exception("Header Link Description is not present in the case. Please add link description first.");
 		}
 
 		if (b) {
-			//logger.info("Header Link is displayed: " + text);
+			logger.info("Header Link is displayed: " + text);
 			Assert.assertEquals("Header Link displayed",true, b);
 		}else {
-			//logger.fatal("Header Link is not displayed: " + text);
+			logger.fatal("Header Link is not displayed: " + text);
 			Assert.fail("Header Link is not displayed: " + text);
 		}
 
