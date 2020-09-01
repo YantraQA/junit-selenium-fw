@@ -1,7 +1,9 @@
-# junit-selenium-fw
-Junit Based Automation Framework for Beginner
+package pageobjects;
 
-##Sample Page Object Model
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
 public class HomePageObjects {
 
     //Section1:  Declare a driver object
@@ -19,5 +21,5 @@ public class HomePageObjects {
     public void clickLinkSignInSecurely(){
         driver.findElement(link_sign_in_securly).click();
     }
-    
+
 }
