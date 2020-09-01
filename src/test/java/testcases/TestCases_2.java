@@ -9,6 +9,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestCases_2 extends TestBase {
+//Page Object Model:
+
+    //Divide into pages
+    //home page (all the objects should go to the home page file(text, excel file, properties, configuration, java)
+    //Search page( all the object should go in the search page file
+    //Add to Cart (all the object should go in add to cart page file
+    //Check out page
+    //Payment Page
 
     @Test
     public void t_02_search_for_product() {
