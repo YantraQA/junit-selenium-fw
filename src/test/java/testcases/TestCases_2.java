@@ -17,7 +17,7 @@ public class TestCases_2 extends TestBase {
     private static final Logger logger = LogManager.getLogger(TestCases_2.class);
 
     @Test
-    public void t_02_search_for_product() {
+    public void t_01_search_for_product() {
 
         logger.info("Test case started: t_02_search_for_product");
 

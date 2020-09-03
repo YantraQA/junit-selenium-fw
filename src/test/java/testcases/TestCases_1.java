@@ -55,7 +55,7 @@ public class TestCases_1 extends TestBase {
     }
 
     @Test
-    public void t_02_check_sign_in_button_on_home_page_using_page_object_model(){
+    public void t_03_check_sign_in_button_on_home_page_using_page_object_model(){
         logger.info("Test case started: t_02_check_sign_in_button_on_home_page_using_page_object_model");
         driver.get(base_url);
 
@@ -71,7 +71,8 @@ public class TestCases_1 extends TestBase {
     }
 
     @Test
-    public void t_03_sign_in_the_app_using_sign_in_securly_link_in_home_page(){
+    public void t_04_sign_in_the_app_using_sign_in_securly_link_in_home_page(){
+        logger.info("Test case started: t_04_sign_in_the_app_using_sign_in_securly_link_in_home_page");
         driver.get(base_url);
 
         //Init Page Objects
@@ -81,6 +82,7 @@ public class TestCases_1 extends TestBase {
         //Steps
         signInPageObjects.validateEmailInputTextBoxIsDisplayed();
         signInPageObjects.enterTextInEmailTextBox("akashdktyagi@gmail.com");
+        logger.info("Test case Ended: t_04_sign_in_the_app_using_sign_in_securly_link_in_home_page");
 
     }
 
