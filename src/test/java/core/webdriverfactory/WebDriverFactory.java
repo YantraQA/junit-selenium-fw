@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import testcases.TestCases_1;
 
@@ -21,6 +22,13 @@ public class WebDriverFactory {
             case "firefox":
                 driver = new FirefoxDriver();
                 logger.info("Firefox Browser invoked");
+                break;
+            case "headless":
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("headless");
+                options.addArguments("window-size=1200x600");
+                driver = new ChromeDriver(options);
+                logger.info("Headless Chrome Browser invoked");
                 break;
             default:
                 logger.fatal("No such browser is implemented.Browser name sent: " + browser);
