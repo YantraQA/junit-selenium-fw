@@ -15,7 +15,7 @@ public class TestBase {
     protected final static String defaultPageTitleText = "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
 
     private String getBrowserName(){
-        String browserDefault = "chrome"; //Set by default
+        String browserDefault = "headless"; //Set by default
         String browserSentFromCmd = System.getProperty("browser");
 
         if (browserSentFromCmd==null){
@@ -23,7 +23,6 @@ public class TestBase {
         }else{
             return browserSentFromCmd;
         }
-
     }
 
     @Before
