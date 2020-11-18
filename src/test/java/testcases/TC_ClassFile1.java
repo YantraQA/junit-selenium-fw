@@ -6,15 +6,16 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.util.concurrent.TimeUnit;
 
 public class TC_ClassFile1 {
 
     WebDriver driver;
-    String base_url = "https://traveltriangle.com/";
+    String base_url = "https://amazon.in/";
     int implicit_wait_timeout_in_sec = 20;
 
+    //This method will execute before every Test method
+    //Since, we need to invoke Browser for every test case, we will use this annotation to have driver init steps
     @Before
     public void set_up(){
         driver = new ChromeDriver();
@@ -25,11 +26,12 @@ public class TC_ClassFile1 {
     @Test
     public void t_01_check_website_is_working(){
         driver.get(base_url);
-        String expected = "Personalized Holiday Packages | Customized Tour Packages from multiple local and trusted travel agents";
+        String expected = "amazon";
         String actual =driver.getTitle();
         Assert.assertEquals("Page Title validation",expected,actual);
     }
-    
+
+    //This method will execute after the end of each @Test annotated method.
     @After
     public void clean_up(){
         driver.quit();
