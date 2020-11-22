@@ -83,7 +83,7 @@ public class TC_ClassFile1 {
 * So you can make use of ```TestBase``` Class whenever you wish to create a new Test Class.
 * In this case we have two test class and both inheriting the ```TestBase``` class.
 
-```aidl
+```java
 //Test Base class
 package base;
 
@@ -101,7 +101,7 @@ public class TestBase {
 * This is how we can make use of methods and variables in the Parent Class which in this case is ```TestBase``` class.
 * Driver is declared in the Base Class and can be used in Child Classes. 
 * This brings reusability and maintainability of code.
-```aidl
+```java
 public class TestCases_1 extends TestBase {
 
     @Before
@@ -112,7 +112,7 @@ public class TestCases_1 extends TestBase {
     }
 ```
 
-```aidl
+```java
 public class TestCases_2 extends TestBase {
 
     @Before
@@ -127,7 +127,7 @@ public class TestCases_2 extends TestBase {
 * After a product is searched, we need to instruct the Selenium to wait for specific condition before proceeding to the next step.
 * This is called as "Explicit Wait" i.e. we are explicitly instructing the java script to wait for Element to be clickable.
 
-```aidl
+```java
     @Test
     public void t_02_search_for_product() {
         driver.get(base_url);
