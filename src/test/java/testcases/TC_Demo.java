@@ -9,23 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 //Just a Samplte Demo Class to demonstrate the Junit Execution Sequence
 public class TC_Demo {
-
-    public void t_1(){
-        WebDriver driver = new ChromeDriver();
-        driver.get("url");
-        driver.findElement(By.linkText("sdfdsf")).click();
-        Assert.assertEquals("sdfdsf",true,true);
-        driver.quit();
-    }
-
-    public void t_2(){
-        WebDriver driver = new ChromeDriver();
-        driver.get("url");
-        driver.findElement(By.linkText("sdfdsf")).click();
-        Assert.assertEquals("sdfdsf",true,true);
-        driver.quit();
-    }
-
+    
 
     @BeforeClass
     public void setUpClass(){
