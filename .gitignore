@@ -1,6 +1,8 @@
 # Compiled class file
 *.class
-
+chromedriver
+target
+junkLogs
 .idea
 *.iml
 .settings

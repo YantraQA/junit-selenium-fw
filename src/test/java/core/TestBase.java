@@ -16,6 +16,7 @@ public class TestBase {
     @Before
     public void set_up(){
         try{
+            //Use WebDriver Factory to get the Driver object instead of driver = new ChromeDriver()
             driver = WebDriverFactory.getWebDriverForBrowser("chrome");
         }catch(Exception e){
             e.printStackTrace();
@@ -27,5 +28,4 @@ public class TestBase {
     public void clean_up(){
         driver.quit();
     }
-
 }
