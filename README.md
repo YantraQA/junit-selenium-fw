@@ -33,7 +33,7 @@ Junit Based Automation Framework for Beginners
 * All the annotation which has ```@Before``` annotated method will execute before every test.
 * All the annotation which has ```@After``` annotated method will execute after every test.
 
-```aidl
+```java
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
