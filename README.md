@@ -4,9 +4,9 @@ Junit Based Automation Framework for Beginners
 
 #### 1. Branch: ```first-test-case-without-pom```
 > Learning Objective:
->> Basic Maven Project <br>
->> POM File <br>
->> Basic Selenium Test
+>> * Basic Maven Project <br>
+>> * POM File <br>
+>> * Basic Selenium Test
 
 * Create a Maven Project
 * Add below dependency in the POM file:
@@ -76,8 +76,8 @@ public class TC_ClassFile1 {
 
 #### 2. Branch: ```2-test-base-second-test-case```
 > Learning Objective:
->> Inheritance: Test Base Class <br>
->> Explicit Wait
+>> * Inheritance: Test Base Class <br>
+>> * Explicit Wait
 
 * In this next enhancement we are making using of inheritance concept i.e. use of ```TestBase``` Class
 * All the reusable component can be shifted to this class and all the TestCase Class will inherit this ```TestBase``` class.
@@ -154,7 +154,7 @@ public class TestCases_2 extends TestBase {
 
 #### 3. Branch: ```3-move-setup-cleanup-in-base```
 > Learning Objective:
->> Inheritance: Move @Before, @After Annotation to Base Class
+>> * Inheritance: Move @Before, @After Annotation to Base Class
 
 * Move @Before and @After in the TestBase Class since it was getting repeated in both the test classes.
 * Notice that Set up and clean up methods are not repeated in classes and is being reused from the ```TestBase``` class.
@@ -181,7 +181,7 @@ public class TestBase {
 
 #### 4. Branch: ```4-impl-webdriver-factory```
 > Learning Objective:
->> Web Driver factory implementation
+>> * Web Driver factory implementation
 
 * Web Driver factory is implemented to handle Web Driver object initialization.
 * Factory method is used a centralized way of creating driver object.
@@ -228,6 +228,55 @@ public class TestBase {
         }catch(Exception e){
             e.printStackTrace();
             Assert.fail("Incorrect Browser Sent. Check the Stack Trace");
+        }
+    }
+
+    @After
+    public void clean_up(){
+        driver.quit();
+    }
+}
+```
+#### 5. Branch: ```5-send-browser-info-from-mvn-cmd-line```
+> Learning Objective:
+>> * Send Browser information from maven command line <br>
+>> * ```mvn clean test -Dbrowser=chrome``` <br>
+>> * ```mvn clean test -Dbrowser=firefox ``` <br>
+
+* Same test case should be capable of executing in multiple browsers.
+* But to run the test case on different browser, code should not be modified in any way.
+* Browser setting should be configurable from outside of the Framework. 
+* One of the way to pass browser argument is via command line argument.
+
+* In below code, method ```getBrowserName``` is created to pick or sense the command line argument.
+* If there is any argument being sent from command line, for example, ```mvn clean test -Dbrowser=chrome```, it will be captured in the java environment variable.
+* Enviroment Variable ```browser``` will store the value as ```chrome``` and can be used with-in the code.
+* This statement, ```String browserSentFromCmd = System.getProperty("browser");``` stores the "chrome" sent from cmd line and saves it in the variable ```browserSentFromCmd```
+```java
+public class TestBase {
+    protected WebDriver driver; //this should never be static, if made static parallel exec of classes not possible
+    protected final static String base_url = "https://amazon.in";
+
+    private String getBrowserName(){
+        String browserDefault = "chrome"; //Set by default
+        String browserSentFromCmd = System.getProperty("browser");
+        //mvn clean install -Dbrowser=safari
+        //browserSentFromCmd = safari
+        if (browserSentFromCmd==null){
+            return browserDefault;
+        }else{
+            return browserSentFromCmd;
+        }
+    }
+
+    @Before
+    public void set_up(){
+        String browser = getBrowserName();
+        try{
+            driver = WebDriverFactory.getWebDriverForBrowser(browser);
+        }catch(Exception e){
+            e.printStackTrace();
+            Assert.fail("Browser Initialization failed. Check the Stack Trace. " + e.getMessage());
         }
     }
 
