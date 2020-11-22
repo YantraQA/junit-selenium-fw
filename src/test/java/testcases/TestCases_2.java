@@ -25,6 +25,7 @@ public class TestCases_2 extends TestBase {
         //Wait and Search for product
         WebDriverWait webDriverWait = new WebDriverWait(driver,20);
         WebElement elementSearchBox = webDriverWait.until(ExpectedConditions.elementToBeClickable(By.id("twotabsearchtextbox")));
+
         elementSearchBox.sendKeys("Laptop");
         driver.findElement(By.xpath("//input[@value='Go']")).click();
 
@@ -33,6 +34,6 @@ public class TestCases_2 extends TestBase {
         webDriverWait1.until(ExpectedConditions.titleIs("Amazon.in : Laptop"));
 
         //Assertion for Page Title
-        Assert.assertEquals("Page Title validation",driver.getTitle(),"Amazon.in : Laptop");
+        Assert.assertEquals("Page Title validation","Amazon.in : Laptop", driver.getTitle());
     }
 }
