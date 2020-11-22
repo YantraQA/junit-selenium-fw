@@ -156,4 +156,24 @@ public class TestCases_2 extends TestBase {
 >> Inheritance: Move @Before, @After Annotation to Base Class
 
 * Move @Before and @After in the TestBase Class since it was getting repeated in both the test classes.
-* Notice that Set up and clean up methods are not repeated in classes and is being reused.
+* Notice that Set up and clean up methods are not repeated in classes and is being reused from the ```TestBase``` class.
+```java
+public class TestBase {
+    protected WebDriver driver; //this should never be static, if made static parallel exec of classes not possible
+    protected final static String base_url = "https://amazon.in";
+    protected final static int implicit_wait_timeout_in_sec = 20;
+
+    @Before
+    public void set_up(){
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(implicit_wait_timeout_in_sec, TimeUnit.SECONDS);
+    }
+
+    @After
+    public void clean_up(){
+        driver.quit();
+    }
+
+}
+```
