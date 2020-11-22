@@ -241,13 +241,12 @@ public class TestBase {
 > Learning Objective:
 >> * Send Browser information from maven command line <br>
 >> * ```mvn clean test -Dbrowser=chrome``` <br>
->> * ```mvn clean test -Dbrowser=firefox ``` <br>
+>> * ```mvn clean test -Dbrowser=firefox ``` 
 
 * Same test case should be capable of executing in multiple browsers.
 * But to run the test case on different browser, code should not be modified in any way.
 * Browser setting should be configurable from outside of the Framework. 
 * One of the way to pass browser argument is via command line argument.
-
 * In below code, method ```getBrowserName``` is created to pick or sense the command line argument.
 * If there is any argument being sent from command line, for example, ```mvn clean test -Dbrowser=chrome```, it will be captured in the java environment variable.
 * Enviroment Variable ```browser``` will store the value as ```chrome``` and can be used with-in the code.
