@@ -11,7 +11,6 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <cucumber.options/>
     </properties>
 
     <dependencies>
@@ -52,3 +51,6 @@
         </configuration>
         -->
         <!--<env.variable.1></env.variable.1>this is custom variable. currently no value-->
+
+</project>
+
