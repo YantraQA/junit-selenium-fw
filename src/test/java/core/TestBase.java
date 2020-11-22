@@ -40,5 +40,4 @@ public class TestBase {
     public void clean_up(){
         driver.quit();
     }
-
 }
