@@ -12,8 +12,8 @@ public class TC_Demo {
     
 
     @BeforeClass
-    public void setUpClass(){
-
+    public static void setUpClass(){
+        System.out.println("I am Before Class");
     }
 
     @Before
