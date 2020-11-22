@@ -21,7 +21,7 @@ Branch: first-test-case-without-pom
     </dependencies>
 ```
 * Create package under ```test.java``` with name as ```testcases```
-* Create a Test Class: ```test.java.testcases.TC_ClassFile1```
+* Create a Test Class: ```test.java.testcases.RunTest```
 * Add test case to invoke the browser and navigate to the amazon.in web site
 * Note that ```@Test``` annotation is used to invoke the test cases. This annotation is provided to us by Junit library which we have added.
 * Also Note annotation ```@Before``` ```@After```. 
@@ -67,3 +67,4 @@ public class TC_ClassFile1 {
     }
 }
 ```
+

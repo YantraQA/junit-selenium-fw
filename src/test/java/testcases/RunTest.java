@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
-public class TC_ClassFile1 {
+public class RunTest {
 
     WebDriver driver;
     String base_url = "https://amazon.in/";
@@ -26,10 +26,11 @@ public class TC_ClassFile1 {
     @Test
     public void t_01_check_website_is_working(){
         driver.get(base_url);
-        String expected = "amazon";
+        String expected = "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
         String actual =driver.getTitle();
         Assert.assertEquals("Page Title validation",expected,actual);
     }
+
 
     //This method will execute after the end of each @Test annotated method.
     @After
