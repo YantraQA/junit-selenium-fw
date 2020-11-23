@@ -13,26 +13,36 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageobjects.CmnPageObjects;
 
 public class TestCases_2 extends TestBase {
+//Page Object Model:
+
+    //Divide into pages
+    //home page (all the objects should go to the home page file(text, excel file, properties, configuration, java)
+    //Search page( all the object should go in the search page file
+    //Add to Cart (all the object should go in add to cart page file
+    //Check out page
+    //Payment Page
 
     private static final Logger logger = LogManager.getLogger(TestCases_2.class);
 
     @Test
-    public void t_01_search_for_product() {
+    public void t_02_search_for_product() {
+        driver.get(base_url);
+        String expected = "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
+        String actual =driver.getTitle();
+        Assert.assertEquals("Page Title validation",expected,actual);
 
-        logger.info("Test case started: t_02_search_for_product");
+        //Wait and Search for product
+        WebDriverWait webDriverWait = new WebDriverWait(driver,20);
+        WebElement elementSearchBox = webDriverWait.until(ExpectedConditions.elementToBeClickable(By.id("twotabsearchtextbox")));
 
-        //Navigating to the Url
-        WebDriverFactory.navigateToTheUrl(base_url);
+        elementSearchBox.sendKeys("Laptop");
+        driver.findElement(By.xpath("//input[@value='Go']")).click();
 
-        //Init Page Object model class file
-        CmnPageObjects cmnPageObjects = new CmnPageObjects(driver);
-        cmnPageObjects.validatePageTitleMatch(defaultPageTitleText);
+        //Wait for title
+        WebDriverWait webDriverWait1 = new WebDriverWait(driver,20);
+        webDriverWait1.until(ExpectedConditions.titleIs("Amazon.in : Laptop"));
 
-        //Search Text Box
-        cmnPageObjects.SetSearchTextBox("Laptop");
-        cmnPageObjects.ClickOnSearchButton();
-        cmnPageObjects.validatePageTitleMatch("Amazon.in : Laptop");
-
-        logger.info("Test case Ended: t_02_search_for_product");
+        //Assertion for Page Title
+        Assert.assertEquals("Page Title validation","Amazon.in : Laptop", driver.getTitle());
     }
 }

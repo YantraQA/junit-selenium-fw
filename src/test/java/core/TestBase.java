@@ -17,6 +17,8 @@ public class TestBase {
     private String getBrowserName(){
         String browserDefault = "headless"; //Set by default
         String browserSentFromCmd = System.getProperty("browser");
+        //mvn clean install -Dbrowser=safari
+        //browserSentFromCmd = safari
 
         if (browserSentFromCmd==null){
             return browserDefault;
@@ -40,5 +42,4 @@ public class TestBase {
     public void clean_up(){
         driver.quit();
     }
-
 }
